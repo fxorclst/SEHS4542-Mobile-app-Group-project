@@ -1,0 +1,65 @@
+package com.group.groupProject;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+public class MainActivity extends AppCompatActivity {
+
+    FirebaseAuth auth;
+    FirebaseUser user;
+    ImageView btn_logout;
+    TextView tv_username;
+    LinearLayout ll_game1, ll_game2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btn_logout = findViewById(R.id.imageView_logout);
+        tv_username = findViewById(R.id.tv_username);
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
+
+        ll_game1 = findViewById(R.id.ll_game1);
+        ll_game2 = findViewById(R.id.ll_game2);
+
+        if(user!=null){
+            String name = user.getDisplayName();
+            tv_username.setText(name);
+        }else{
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        btn_logout.setOnClickListener(view -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
+        ll_game1.setOnClickListener(view -> {
+            Intent intent = new Intent(this, ColorGameDifficulty.class);
+            intent.putExtra("game", "brain");
+            startActivity(intent);
+            finish();
+        });
+
+        ll_game2.setOnClickListener(view -> {
+            Intent intent = new Intent(this, ColorGameDifficulty.class);
+            intent.putExtra("game", "memory");
+            startActivity(intent);
+            finish();
+        });
+    }
+}
