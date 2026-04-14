@@ -1,4 +1,4 @@
-package com.group.groupProject;
+package com.group.groupProject.auth;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.group.groupProject.core.MainActivity;
+import com.group.groupProject.R;
 
 public class RegisterActivity extends AppCompatActivity {
     EditText editTextEmail, editTextPassword, editTextName, editTextConfirmPassword;

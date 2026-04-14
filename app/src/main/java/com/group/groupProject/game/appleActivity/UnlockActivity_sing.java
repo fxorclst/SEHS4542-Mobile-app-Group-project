@@ -1,6 +1,6 @@
-package com.learning.group_project_game;
+package com.group.groupProject.game.appleActivity;
 
-// 引入所有需要的類別
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -19,13 +19,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
 
+import com.group.groupProject.R;
+
 import java.util.Locale;
 
-// 讓 Activity 實現手勢監聽介面
+
 public class UnlockActivity_sing extends AppCompatActivity implements GestureDetector.OnGestureListener {
 
-    // --- UI 元件 ---
-    // 圖層
     private RelativeLayout gameContainer, winContainer, loseContainer;
     // 遊戲畫面元件
     private EditText passwordInput;

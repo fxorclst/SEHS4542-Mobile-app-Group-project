@@ -21,4 +21,8 @@
     <string name="pause">Pause</string>
     <string name="back_home">Back Home</string>
     <string name="title">Color Brain</string>
+    <string name="go_back_to_main_page">Go back to main page</string>
+    <string name="start_game">Start Game</string>
+    <string name="welcome_to_this_fun_game">Welcome to this fun game.</string>
+    <string name="cat_pic">CatPic</string>
 </resources>

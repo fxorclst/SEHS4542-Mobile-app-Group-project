@@ -1,4 +1,4 @@
-package com.group.groupProject;
+package com.group.groupProject.game.colorGame;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.group.groupProject.R;
+import com.group.groupProject.core.MainActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;

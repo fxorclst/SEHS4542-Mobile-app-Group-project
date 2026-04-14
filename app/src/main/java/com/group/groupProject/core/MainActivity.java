@@ -1,4 +1,4 @@
-package com.group.groupProject;
+package com.group.groupProject.core;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.group.groupProject.game.colorGame.ColorGameDifficulty;
+import com.group.groupProject.R;
+import com.group.groupProject.auth.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 

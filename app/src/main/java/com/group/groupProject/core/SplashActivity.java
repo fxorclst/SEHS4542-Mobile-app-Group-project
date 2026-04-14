@@ -1,14 +1,13 @@
-package com.group.groupProject;
+package com.group.groupProject.core;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.group.groupProject.game.appleActivity.HomeActivity_sing;
+import com.group.groupProject.R;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -18,7 +17,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            Intent intent = new Intent(SplashActivity.this, HomeActivity_sing.class);
             startActivity(intent);
             finish();
         },2000);

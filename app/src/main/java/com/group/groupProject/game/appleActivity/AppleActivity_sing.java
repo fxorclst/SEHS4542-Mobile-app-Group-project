@@ -1,6 +1,6 @@
-package com.learning.group_project_game;
+package com.group.groupProject.game.appleActivity;
 
-// 引入所有需要的類別 (與你提供的版本相同)
+
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
@@ -24,20 +24,19 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.group.groupProject.R;
+
 import java.util.Locale;
 import java.util.Random;
 
 public class AppleActivity_sing extends AppCompatActivity implements SensorEventListener {
 
-    // --- 更改 1: UI元件變數宣告，加入失敗畫面的元件 ---
     private ConstraintLayout gameContainer, winContainer, loseContainer; // 新增 loseContainer
     private ImageView apple1, apple2, apple3;
     private TextView timerText, codeDisplayText;
-    // 為了區分，將勝利和失敗畫面的按鈕分開宣告
     private Button nextLevelButton, winReplayButton, winHomeButton;
     private Button loseReplayButton, loseHomeButton;
 
-    // --- 邏輯變數 (與你提供的版本相同) ---
     private SensorManager sensorManager;
     private Sensor accelerometer;
     private static final int SHAKE_THRESHOLD = 800;
@@ -56,7 +55,6 @@ public class AppleActivity_sing extends AppCompatActivity implements SensorEvent
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apple_sing);
 
-        // --- 更改 2: 初始化所有UI元件，包括失敗畫面的 ---
         gameContainer = findViewById(R.id.game_container);
         winContainer = findViewById(R.id.win_container);
         loseContainer = findViewById(R.id.lose_container); // 初始化 loseContainer
@@ -69,7 +67,6 @@ public class AppleActivity_sing extends AppCompatActivity implements SensorEvent
 
         winScoreTextGame1 = findViewById(R.id.win_score_text_game1);  // 初始化分數 TextView
 
-        // 為了ID不衝突，XML中的ID已改為 win_replay_button / lose_replay_button 等
         nextLevelButton = findViewById(R.id.next_level_button);
         winReplayButton = findViewById(R.id.win_replay_button); // 舊的 replayButton
         winHomeButton = findViewById(R.id.win_home_button);   // 舊的 homeButton
@@ -87,7 +84,6 @@ public class AppleActivity_sing extends AppCompatActivity implements SensorEvent
         // --- 設定所有按鈕的點擊事件 ---
         setupButtonListeners();
 
-        // --- 首次啟動遊戲 (與你提供的版本相同) ---
         startGame();
     }
 

@@ -7,7 +7,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AppleActivity_sing">
+    tools:context=".game.appleActivity.AppleActivity_sing">
 
     <!-- =================================================================== -->
     <!--          圖層1：遊戲畫面 (將你原本的所有元件搬到這裡)                -->

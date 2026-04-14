@@ -1,4 +1,4 @@
-package com.group.groupProject;
+package com.group.groupProject.game.colorGame;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.group.groupProject.R;
+import com.group.groupProject.core.MainActivity;
 
 public class ColorGameDifficulty extends AppCompatActivity {
 
@@ -58,7 +61,7 @@ public class ColorGameDifficulty extends AppCompatActivity {
         });
 
         btn_back_to_home.setOnClickListener(view -> {
-            Intent intentBackHome = new Intent(this,MainActivity.class);
+            Intent intentBackHome = new Intent(this, MainActivity.class);
             startActivity(intentBackHome);
             finish();
         });

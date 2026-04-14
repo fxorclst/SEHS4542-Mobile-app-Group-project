@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity_sing">
+    tools:context=".game.appleActivity.HomeActivity_sing">
 
     <TextView
         android:id="@+id/welcome_text"
@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="225dp"
-        android:textSize="24dp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:text="Welcome to this fun game." />
+        android:text="@string/welcome_to_this_fun_game" />
 
 
     <!-- 一個置中的 "Start Game" 按鈕 -->
@@ -26,6 +26,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/welcome_text"
         android:layout_marginTop="35dp"
+        android:contentDescription="@string/cat_pic"
         app:srcCompat="@drawable/start_cat" />
 
     <Button
@@ -39,7 +40,7 @@
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
         android:layout_centerHorizontal="true"
-        android:text="Start Game"
+        android:text="@string/start_game"
         android:textSize="22sp" />
 
     <Button
@@ -53,7 +54,7 @@
         android:paddingEnd="40dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:text="Go back to main page"
+        android:text="@string/go_back_to_main_page"
         android:textSize="22sp" />
 
 
