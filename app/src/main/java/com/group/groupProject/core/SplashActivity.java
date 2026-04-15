@@ -7,6 +7,7 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import com.group.groupProject.R;
 import com.group.groupProject.game.colorGame.ColorBrainGameActivity;
+import com.group.groupProject.game.mingGame.GameActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -16,7 +17,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(SplashActivity.this, ColorBrainGameActivity.class);
+            Intent intent = new Intent(SplashActivity.this, GameActivity.class);
             startActivity(intent);
             finish();
         },2000);

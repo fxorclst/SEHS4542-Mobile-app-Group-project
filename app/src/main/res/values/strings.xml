@@ -25,4 +25,55 @@
     <string name="start_game">Start Game</string>
     <string name="welcome_to_this_fun_game">Welcome to this fun game.</string>
     <string name="cat_pic">CatPic</string>
+
+    <string name="main_start_levels">Choose Level</string>
+    <string name="main_score_list">Score List</string>
+    <string name="score_list_placeholder">Score list is planned for a later update.</string>
+    <string name="level_select_progress">Unlocked %1$d / %2$d</string>
+    <string name="level_button_label">Level %1$d</string>
+    <string name="level_button_locked_label">Level %1$d\nLocked</string>
+    <string name="level_select_back">Back</string>
+    <string name="level_select_title">Choose Level</string>
+    <string name="level_select_subtitle">Only unlocked levels can be opened.</string>
+    <string name="game_menu">Menu</string>
+    <string name="game_hint">Hint</string>
+    <string name="level_info_title_format">Level %1$d · %2$s</string>
+    <string name="mistake_count_format">Mistakes: %1$d</string>
+    <string name="simulate_clear">Simulate clear</string>
+    <string name="simulate_failed">Simulate failed</string>
+    <string name="simulate_mistake">Simulate mistake</string>
+    <string name="reset_mistakes">Reset mistakes</string>
+    <string name="menu_dialog_title">Pause menu</string>
+    <string name="menu_dialog_message">The level is paused. What would you like to do?</string>
+    <string name="menu_continue">Continue</string>
+    <string name="menu_restart">Restart</string>
+    <string name="menu_back_to_levels">Back to levels</string>
+    <string name="hint_dialog_title">Hint</string>
+    <string name="hint_dialog_confirm">Got it</string>
+    <string name="level_clear_message">Nice work! The next level has been unlocked.</string>
+    <string name="level_failed_message">You\'re failed! Please try again.</string>
+    <string name="level_clear_all_message">Great job! You cleared all levels.</string>
+
+    <string name="level_score_clear_title">Level cleared!</string>
+    <string name="level_score_failed_title">Level failed!</string>
+
+    <string name="level_score_message">Mistakes: %1$d \nScore: %2$d</string>
+    <string name="level_score_back_to_levels">Back to levels</string>
+    <string name="level_score_retry">Retry</string>
+    <string name="level_score_next_level">Next level</string>
+
+    <string name="level2_timer_format">Time: %1$s:%2$s</string>
+    <string name="level2_found_format">Found: %1$d / %2$d</string>
+    <string name="level2_instruction_text">Drag the board to the roof edge, then open the top windows to reveal the hidden items.</string>
+    <string name="level2_pull_curtain_hint">Pull curtain</string>
+    <string name="level2_item_board">Board</string>
+    <string name="level2_item_leap_point">Leap of Faith\npoint</string>
+    <string name="level2_item_door">Exit</string>
+    <string name="level2_item_door_found">Exit ✓</string>
+    <string name="level2_item_rope">Rope</string>
+    <string name="level2_item_rope_found">Rope ✓</string>
+    <string name="level2_item_cosplay">Brotherhood\ncloak</string>
+    <string name="level2_item_cosplay_found">Brotherhood\ncloak ✓</string>
+    <string name="level2_item_parachute">Parachute</string>
+    <string name="level2_item_parachute_found">Parachute ✓</string>
 </resources>
