@@ -78,6 +78,12 @@ public class ColorMemoryGameActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        cancelTimer();
+    }
+
     private void gamePause() {
         new AlertDialog.Builder(ColorMemoryGameActivity.this)
                 .setTitle("Game Paused")
@@ -355,9 +361,5 @@ public class ColorMemoryGameActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        cancelTimer();
-    }
+
 }

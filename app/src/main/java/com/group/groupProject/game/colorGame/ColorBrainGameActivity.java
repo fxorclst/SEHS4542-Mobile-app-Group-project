@@ -76,6 +76,9 @@ public class ColorBrainGameActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         cancelTimer();
+
+        isPaused = false;
+        timerRunning = false;
     }
 
     private void initViews() {

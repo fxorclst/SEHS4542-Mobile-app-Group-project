@@ -22,6 +22,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.group.groupProject.R;
+
 import java.util.Locale;
 import java.util.Random;
 
@@ -68,6 +70,7 @@ public class AppleActivity_sing extends AppCompatActivity implements SensorEvent
         loseReplayButton = findViewById(R.id.lose_replay_button);
         loseHomeButton = findViewById(R.id.lose_home_button);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
         if (sensorManager != null) {
             accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         }

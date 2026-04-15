@@ -15,8 +15,13 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
+
+import com.group.groupProject.R;
+
 import java.util.Locale;
 
 public class UnlockActivity_sing extends AppCompatActivity implements GestureDetector.OnGestureListener {
@@ -34,7 +39,7 @@ public class UnlockActivity_sing extends AppCompatActivity implements GestureDet
     private static final int SWIPE_THRESHOLD = 100;
     private static final int SWIPE_VELOCITY_THRESHOLD = 100;
     private TextView finalScoreText;
-    private TextView scoretext;
+    private TextView scoreText;
     private long remainingMillisGame2 = 25000;
     private int scoreFromGame1 = 0;
 
@@ -52,7 +57,7 @@ public class UnlockActivity_sing extends AppCompatActivity implements GestureDet
         lockOpenImage = findViewById(R.id.lock_open_image);
         winHomeButton = findViewById(R.id.unlock_win_home_button);
         finalScoreText = findViewById(R.id.final_score_text);
-        scoretext = findViewById(R.id.level_score_text);
+        scoreText = findViewById(R.id.level_score_text);
         loseRetryButton = findViewById(R.id.unlock_lose_retry_button);
         loseHomeButton = findViewById(R.id.unlock_lose_home_button);
         correctCode = getIntent().getStringExtra("UNLOCK_CODE");
@@ -159,7 +164,7 @@ public class UnlockActivity_sing extends AppCompatActivity implements GestureDet
 
             int scoreGame2 = (int) (remainingMillisGame2 / 1000);
             int totalScore = scoreFromGame1 + scoreGame2;
-            scoretext.setText(String.format("Score: %d", scoreGame2));
+            scoreText.setText(String.format("Score: %d", scoreGame2));
             finalScoreText.setText(String.format("Total Score: %d", totalScore));
 
             new Handler(Looper.getMainLooper()).postDelayed(() -> {
@@ -187,12 +192,12 @@ public class UnlockActivity_sing extends AppCompatActivity implements GestureDet
     }
 
     @Override
-    public boolean onDown(MotionEvent e) {
+    public boolean onDown(@NonNull MotionEvent e) {
         return true;
     }
 
     @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+    public boolean onFling(MotionEvent e1, @NonNull MotionEvent e2, float velocityX, float velocityY) {
         try {
             float diffY = e2.getY() - e1.getY();
             float diffX = e2.getX() - e1.getX();

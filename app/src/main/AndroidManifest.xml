@@ -12,10 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Material3.Light.NoActionBar">
         <activity android:name=".game.appleActivity.AppleActivity_sing"
+            android:screenOrientation="portrait"
             android:exported="false"/>
         <activity android:name=".game.appleActivity.HomeActivity_sing"
-            android:exported="true"/>
+            android:screenOrientation="portrait"
+            android:exported="false"/>
         <activity android:name=".game.appleActivity.UnlockActivity_sing"
+            android:screenOrientation="portrait"
             android:exported="false"/>
         <activity
             android:name=".game.colorGame.ColorMemoryGameActivity"
