@@ -1,7 +1,5 @@
 package com.group.groupProject.game.appleActivity;
 
-package com.learning.group_project_game;
-
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
