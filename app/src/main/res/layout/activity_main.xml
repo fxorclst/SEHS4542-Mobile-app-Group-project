@@ -285,6 +285,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/ll_game3"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
@@ -317,7 +318,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Chat"
+                            android:text="Apple Game"
                             android:textAlignment="center"
                             android:textColor="#2E3D6D"
                             android:textSize="14sp"
@@ -326,6 +327,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/ll_game4"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
@@ -358,7 +360,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Report"
+                            android:text="Ming Game"
                             android:textAlignment="center"
                             android:textColor="#2E3D6D"
                             android:textSize="14sp"

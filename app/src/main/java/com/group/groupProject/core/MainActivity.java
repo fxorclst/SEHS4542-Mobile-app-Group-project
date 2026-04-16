@@ -10,9 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.group.groupProject.game.appleActivity.HomeActivity_sing;
 import com.group.groupProject.game.colorGame.ColorGameDifficulty;
 import com.group.groupProject.R;
 import com.group.groupProject.auth.LoginActivity;
+import com.group.groupProject.game.mingGame.LevelSelectActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser user;
     ImageView btn_logout;
     TextView tv_username;
-    LinearLayout ll_game1, ll_game2;
+    LinearLayout ll_game1, ll_game2, ll_game3, ll_game4, ll_game5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
         ll_game1 = findViewById(R.id.ll_game1);
         ll_game2 = findViewById(R.id.ll_game2);
+        ll_game3 = findViewById(R.id.ll_game3);
+        ll_game4 = findViewById(R.id.ll_game4);
 
         if(user!=null){
             String name = user.getDisplayName();
@@ -61,6 +65,18 @@ public class MainActivity extends AppCompatActivity {
         ll_game2.setOnClickListener(view -> {
             Intent intent = new Intent(this, ColorGameDifficulty.class);
             intent.putExtra("game", "memory");
+            startActivity(intent);
+            finish();
+        });
+
+        ll_game3.setOnClickListener(view -> {
+            Intent intent = new Intent(this, HomeActivity_sing.class);
+            startActivity(intent);
+            finish();
+        });
+
+        ll_game4.setOnClickListener(view -> {
+            Intent intent = new Intent(this, LevelSelectActivity.class);
             startActivity(intent);
             finish();
         });
