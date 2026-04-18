@@ -64,6 +64,9 @@
             android:name=".game.mingGame.GameActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".score.LeaderboardActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

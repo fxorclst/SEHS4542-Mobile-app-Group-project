@@ -76,4 +76,17 @@
     <string name="level2_item_cosplay_found">Brotherhood\ncloak ✓</string>
     <string name="level2_item_parachute">Parachute</string>
     <string name="level2_item_parachute_found">Parachute ✓</string>
+
+    <string name="go_to_leaderboard">Go to leaderboard</string>
+    <string name="leaderboard_title">Leaderboard</string>
+    <string name="show_all_levels">Show all levels</string>
+    <string name="level_template">Level %1$d</string>
+    <string name="no_result">No result.</string>
+    <string name="network_error">Network error. Please try again.</string>
+    <string name="refresh_content_description">Refresh leaderboard</string>
+    <string name="label_player_name">Player: %1$s</string>
+    <string name="label_level">Level: %1$d</string>
+    <string name="label_score">Score: %1$d</string>
+    <string name="label_rank">Rank: %1$s</string>
+    <string name="unknown_value">—</string>
 </resources>
