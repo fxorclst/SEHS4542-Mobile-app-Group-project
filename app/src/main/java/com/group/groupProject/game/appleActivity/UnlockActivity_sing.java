@@ -15,18 +15,16 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
-
 import com.group.groupProject.R;
-
 import java.util.Locale;
+import android.widget.ImageButton;
 
 public class UnlockActivity_sing extends AppCompatActivity implements GestureDetector.OnGestureListener {
 
-    private RelativeLayout gameContainer, winContainer, loseContainer;
+    private RelativeLayout gameContainer, winContainer, loseContainer, pauseContainer;
     private EditText passwordInput;
     private TextView timerText;
     private ImageView lockClosedImage, lockOpenImage;
@@ -42,6 +40,9 @@ public class UnlockActivity_sing extends AppCompatActivity implements GestureDet
     private TextView scoreText;
     private long remainingMillisGame2 = 25000;
     private int scoreFromGame1 = 0;
+    private ImageButton pauseButton; 
+    private Button resumeButton, quitButton; 
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,9 +61,13 @@ public class UnlockActivity_sing extends AppCompatActivity implements GestureDet
         scoreText = findViewById(R.id.level_score_text);
         loseRetryButton = findViewById(R.id.unlock_lose_retry_button);
         loseHomeButton = findViewById(R.id.unlock_lose_home_button);
+        pauseButton = findViewById(R.id.pause_button_game2);
+        resumeButton = findViewById(R.id.resume_button_game2);
+        quitButton = findViewById(R.id.quit_button_game2);
+        pauseContainer = findViewById(R.id.pause_container_game2);
+        
         correctCode = getIntent().getStringExtra("UNLOCK_CODE");
         gestureDetector = new GestureDetectorCompat(this, this);
-        correctCode = getIntent().getStringExtra("UNLOCK_CODE");
         scoreFromGame1 = getIntent().getIntExtra("SCORE_FROM_GAME1", 0);
 
         setupButtonListeners();
@@ -89,6 +94,17 @@ public class UnlockActivity_sing extends AppCompatActivity implements GestureDet
         loseHomeButton.setOnClickListener(v -> {
             finish();
         });
+        pauseButton.setOnClickListener(v -> {
+            pauseGame();
+            pauseContainer.setVisibility(View.VISIBLE);
+        });
+
+        resumeButton.setOnClickListener(v -> {
+            pauseContainer.setVisibility(View.GONE);
+            resumeGame();
+        });
+
+        quitButton.setOnClickListener(v -> goToHome());
     }
 
     private void goToHome() {
@@ -105,6 +121,7 @@ public class UnlockActivity_sing extends AppCompatActivity implements GestureDet
         gameContainer.setVisibility(View.VISIBLE);
         winContainer.setVisibility(View.GONE);
         loseContainer.setVisibility(View.GONE);
+        pauseContainer.setVisibility(View.GONE);
         passwordInput.setEnabled(true);
         passwordInput.setText("");
         lockClosedImage.setVisibility(View.VISIBLE);
