@@ -21,11 +21,11 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
 import com.group.groupProject.R;
-
 import java.util.Locale;
 import java.util.Random;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 
 public class AppleActivity_sing extends AppCompatActivity implements SensorEventListener {
 
@@ -35,7 +35,6 @@ public class AppleActivity_sing extends AppCompatActivity implements SensorEvent
     private TextView timerText, codeDisplayText;
     private Button nextLevelButton, winReplayButton, winHomeButton;
     private Button loseReplayButton, loseHomeButton;
-
     private SensorManager sensorManager;
     private Sensor accelerometer;
     private static final int SHAKE_THRESHOLD = 800;
@@ -48,7 +47,9 @@ public class AppleActivity_sing extends AppCompatActivity implements SensorEvent
     private static final int UNLOCK_ACTIVITY_REQUEST_CODE = 1;
     private TextView winScoreTextGame1;
     private long remainingMillisGame1 = 30000;
-
+    private RelativeLayout pauseContainer;
+    private ImageButton pauseButton;
+    private Button resumeButton, quitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,7 @@ public class AppleActivity_sing extends AppCompatActivity implements SensorEvent
         gameContainer = findViewById(R.id.game_container);
         winContainer = findViewById(R.id.win_container);
         loseContainer = findViewById(R.id.lose_container);
+        pauseContainer = findViewById(R.id.pause_container_game1);
         apple1 = findViewById(R.id.apple_1);
         apple2 = findViewById(R.id.apple_2);
         apple3 = findViewById(R.id.apple_3);
@@ -69,6 +71,9 @@ public class AppleActivity_sing extends AppCompatActivity implements SensorEvent
         winHomeButton = findViewById(R.id.win_home_button);
         loseReplayButton = findViewById(R.id.lose_replay_button);
         loseHomeButton = findViewById(R.id.lose_home_button);
+        pauseButton = findViewById(R.id.pause_button_game1);
+        resumeButton = findViewById(R.id.resume_button_game1);
+        quitButton = findViewById(R.id.quit_button_game1);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
         if (sensorManager != null) {
@@ -104,10 +109,24 @@ public class AppleActivity_sing extends AppCompatActivity implements SensorEvent
             intent.putExtra("SCORE_FROM_GAME1", scoreGame1);
 
             startActivityForResult(intent, UNLOCK_ACTIVITY_REQUEST_CODE);
+
         });
 
         loseReplayButton.setOnClickListener(v -> startGame());
         loseHomeButton.setOnClickListener(v -> goToHome());
+
+        pauseButton.setOnClickListener(v -> {
+            pauseGame(); 
+            pauseContainer.setVisibility(View.VISIBLE);
+        });
+
+        resumeButton.setOnClickListener(v -> {
+            pauseContainer.setVisibility(View.GONE);
+            resumeGame();
+        });
+        
+        quitButton.setOnClickListener(v -> goToHome());
+
     }
 
     private void goToHome() {
@@ -124,6 +143,7 @@ public class AppleActivity_sing extends AppCompatActivity implements SensorEvent
         gameContainer.setVisibility(View.VISIBLE);
         winContainer.setVisibility(View.GONE);
         loseContainer.setVisibility(View.GONE);
+        pauseContainer.setVisibility(View.GONE);
 
         hasFallen = false;
         isTimerFinished = false;
