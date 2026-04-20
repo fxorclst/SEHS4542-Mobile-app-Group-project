@@ -139,14 +139,14 @@ public class ColorMemoryGameActivity extends AppCompatActivity {
             case "hard":
                 return 20;
             case "hell":
-                return 51;
+                return 80;
             default:
                 return 6;
         }
     }
 
     private void setupUI() {
-        tvStageTitle.setText("Color Memory - Stage " + stage+"("+difficulty+")");
+        tvStageTitle.setText("Color Memory - Stage " + stage + " (" + difficulty + ")");
         tvScore.setText("Score: " + score);
 
         progressBar.setMax((int) (QUESTION_TIME_MILLIS / 1000));
@@ -174,7 +174,7 @@ public class ColorMemoryGameActivity extends AppCompatActivity {
         isBusy = false;
 
         tvStageTitle.setText("Color Memory - Stage " + stage);
-        createCards();
+        gridCards.post(this::createCards);
         startNewQuestionTimer();
     }
 
@@ -189,13 +189,34 @@ public class ColorMemoryGameActivity extends AppCompatActivity {
         colors.addAll(baseColors);
         Collections.shuffle(colors);
 
+        int totalCards = pairCount * 2;
+        int columns = gridCards.getColumnCount();
+        int rows = (int) Math.ceil((double) totalCards / columns);
+
+        int spacing = dpToPx(4);
+        int totalWidth = gridCards.getWidth();
+        int totalHeight = gridCards.getHeight();
+
+        int sizeByWidth = (totalWidth - (columns + 1) * spacing) / columns;
+        int sizeByHeight = (totalHeight - (rows + 1) * spacing) / rows;
+
+        int cardSize = Math.min(sizeByWidth, sizeByHeight);
+
+        int contentWidth = columns * cardSize + columns * spacing;
+        int contentHeight = rows * cardSize + rows * spacing;
+
+        int horizontalPadding = Math.max(0, (totalWidth - contentWidth) / 2);
+        int verticalPadding = Math.max(0, (totalHeight - contentHeight) / 2);
+
+        gridCards.setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding);
+
         for (int i = 0; i < colors.size(); i++) {
             Button card = new Button(this);
 
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-            params.width = getCardSize(pairCount);
-            params.height = getCardSize(pairCount);
-            params.setMargins(8, 8, 8, 8);
+            params.width = cardSize;
+            params.height = cardSize;
+            params.setMargins(spacing / 2, spacing / 2, spacing / 2, spacing / 2);
             card.setLayoutParams(params);
 
             card.setBackgroundColor(Color.LTGRAY);
@@ -235,7 +256,7 @@ public class ColorMemoryGameActivity extends AppCompatActivity {
         } else if (totalCards <= 40) {
             gridCards.setColumnCount(5);
         } else {
-            gridCards.setColumnCount(6);
+            gridCards.setColumnCount(8);
         }
 
         int columns = gridCards.getColumnCount();
@@ -243,16 +264,8 @@ public class ColorMemoryGameActivity extends AppCompatActivity {
         gridCards.setRowCount(rows);
     }
 
-    private int getCardSize(int pairCount) {
-        if (pairCount <= 6) {
-            return 160;
-        } else if (pairCount <= 10) {
-            return 130;
-        } else if (pairCount <= 20) {
-            return 100;
-        } else {
-            return 80;
-        }
+    private int dpToPx(int dp) {
+        return Math.round(dp * getResources().getDisplayMetrics().density);
     }
 
     private void onCardClicked(Button card, int index) {

@@ -77,13 +77,17 @@
     <!-- Grid for Cards -->
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/grid_cards"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:alignmentMode="alignMargins"
         app:rowCount="4"
         app:columnCount="4"
         app:layout_constraintTop_toBottomOf="@id/progress_time"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:useDefaultMargins="true">
