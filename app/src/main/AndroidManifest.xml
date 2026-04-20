@@ -24,7 +24,7 @@
             android:name=".game.colorGame.ColorMemoryGameActivity"
             android:exported="false" />
         <activity
-            android:name=".game.HideThePhoneGame.HideThePhoneGame"
+            android:name=".game.hideThePhoneGame.HideThePhoneGame"
             android:exported="false" />
         <activity
             android:name=".game.saveTheCat.SaveTheCatGame"

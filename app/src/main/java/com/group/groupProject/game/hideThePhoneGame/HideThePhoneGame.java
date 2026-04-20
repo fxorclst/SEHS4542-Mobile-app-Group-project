@@ -1,4 +1,4 @@
-package com.group.groupProject.game.HideThePhoneGame;
+package com.group.groupProject.game.hideThePhoneGame;
 
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
@@ -6,7 +6,6 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;

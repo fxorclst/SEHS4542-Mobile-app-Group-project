@@ -10,11 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.group.groupProject.game.hideThePhoneGame.HideThePhoneGame;
 import com.group.groupProject.game.appleActivity.HomeActivity_sing;
 import com.group.groupProject.game.colorGame.ColorGameDifficulty;
 import com.group.groupProject.R;
 import com.group.groupProject.auth.LoginActivity;
 import com.group.groupProject.game.mingGame.LevelSelectActivity;
+import com.group.groupProject.game.saveTheCat.SaveTheCatGame;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser user;
     ImageView btn_logout;
     TextView tv_username;
-    LinearLayout ll_game1, ll_game2, ll_game3, ll_game4, ll_game5;
+    LinearLayout ll_game1, ll_game2, ll_game3, ll_game4, ll_game5, ll_game6, ll_game7, ll_game8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
         ll_game2 = findViewById(R.id.ll_game2);
         ll_game3 = findViewById(R.id.ll_game3);
         ll_game4 = findViewById(R.id.ll_game4);
+        ll_game5 = findViewById(R.id.ll_game5);
+        ll_game6 = findViewById(R.id.ll_game6);
+        ll_game7 = findViewById(R.id.ll_game7);
+        ll_game8 = findViewById(R.id.ll_game8);
 
         if(user!=null){
             String name = user.getDisplayName();
@@ -77,6 +83,18 @@ public class MainActivity extends AppCompatActivity {
 
         ll_game4.setOnClickListener(view -> {
             Intent intent = new Intent(this, LevelSelectActivity.class);
+            startActivity(intent);
+            finish();
+        });
+
+        ll_game5.setOnClickListener(view -> {
+            Intent intent = new Intent(this, HideThePhoneGame.class);
+            startActivity(intent);
+            finish();
+        });
+
+        ll_game6.setOnClickListener(view -> {
+            Intent intent = new Intent(this, SaveTheCatGame.class);
             startActivity(intent);
             finish();
         });

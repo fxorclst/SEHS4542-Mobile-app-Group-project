@@ -276,7 +276,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Color Memory"
+                            android:text="Memory"
                             android:textAlignment="center"
                             android:textColor="#2E3D6D"
                             android:textSize="14sp"
@@ -377,6 +377,7 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
+                        android:id="@+id/ll_game5"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.25"
@@ -410,7 +411,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Calender"
+                            android:text="Hide Phone"
                             android:textAlignment="center"
                             android:textColor="#2E3D6D"
                             android:textSize="14sp"
@@ -419,6 +420,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/ll_game6"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
@@ -451,7 +453,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Tips"
+                            android:text="Save Cat"
                             android:textAlignment="center"
                             android:textColor="#2E3D6D"
                             android:textSize="14sp"
@@ -460,6 +462,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/ll_game7"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.25"
@@ -502,6 +505,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/ll_game8"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.25"
