@@ -130,9 +130,9 @@ public class AppleActivity_sing extends AppCompatActivity implements SensorEvent
     }
 
     private void goToHome() {
-        Intent intent = new Intent(AppleActivity_sing.this, HomeActivity_sing.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+//        Intent intent = new Intent(AppleActivity_sing.this, HomeActivity_sing.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(intent);
         finish();
     }
 

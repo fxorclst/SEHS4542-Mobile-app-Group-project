@@ -108,9 +108,9 @@ public class UnlockActivity_sing extends AppCompatActivity implements GestureDet
     }
 
     private void goToHome() {
-        Intent intent = new Intent(this, HomeActivity_sing.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+//        Intent intent = new Intent(this, HomeActivity_sing.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+//        startActivity(intent);
         finish();
     }
 

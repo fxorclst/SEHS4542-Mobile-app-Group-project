@@ -63,10 +63,6 @@
             android:exported="true"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".game.mingGame.LevelSelectActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name=".game.mingGame.GameActivity"
             android:exported="false" />
         <activity

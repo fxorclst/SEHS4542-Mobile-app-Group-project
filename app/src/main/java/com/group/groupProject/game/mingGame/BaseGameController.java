@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.group.groupProject.R;
+import com.group.groupProject.core.LevelProgressStore;
 
 import java.util.Collections;
 import java.util.Map;

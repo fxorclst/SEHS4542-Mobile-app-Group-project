@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.group.groupProject.R;
 import com.group.groupProject.auth.LoginActivity;
+import com.group.groupProject.game.mingGame.GameActivity;
 import com.group.groupProject.score.LeaderboardActivity;
 
 import java.util.ArrayList;
@@ -27,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv_username;
 
     private TextView progressText;
-    private LinearLayout ll_game1, ll_game2, ll_game3, ll_game4, ll_game5, ll_game6, ll_game7, ll_game8, ll_game9, ll_game10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +104,8 @@ public class MainActivity extends AppCompatActivity {
 
         for (int level = 1; level <= LevelProgressStore.TOTAL_LEVEL_COUNT; level++) {
             final int selectedLevel = level;
-            boolean unlocked = level <= maxUnlockedLevel;
+//            boolean unlocked = level <= maxUnlockedLevel; temporary unlock all levels for testing
+            boolean unlocked = true;
             LevelInfo levelInfo = levelInfos.get(level - 1);
 
             View itemView = getLayoutInflater().inflate(
@@ -145,8 +146,35 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void openLevel(int levelNumber) {
-        Toast.makeText(this, "Opening Level " + levelNumber, Toast.LENGTH_SHORT).show();
+    private Intent getLevelIntent(int levelNumber) {
+        switch (levelNumber) {
+            case 1:
+                return new Intent(this, com.group.groupProject.game.colorGame.ColorGameDifficulty.class).putExtra("game", "brain");
+            case 2:
+                return new Intent(this, com.group.groupProject.game.colorGame.ColorGameDifficulty.class).putExtra("game", "memory");
+            case 3:
+                return new Intent(this, com.group.groupProject.game.appleActivity.AppleActivity_sing.class);
+            case 4:
+                return new Intent(this, com.group.groupProject.game.mingGame.GameActivity.class).putExtra(GameActivity.EXTRA_LEVEL_NUMBER, 1);
+            case 5:
+                return new Intent(this, com.group.groupProject.game.mingGame.GameActivity.class).putExtra(GameActivity.EXTRA_LEVEL_NUMBER, 2);
+            case 6:
+                return new Intent(this, com.group.groupProject.game.hideThePhoneGame.HideThePhoneGame.class);
+            case 7:
+                return new Intent(this, com.group.groupProject.game.saveTheCat.SaveTheCatGame.class);
+            default:
+                return null;
+        }
     }
 
+
+
+    private void openLevel(int levelNumber) {
+        Intent activity = getLevelIntent(levelNumber);
+        if (activity == null) {
+            Toast.makeText(this, "Level " + levelNumber + " is not available yet.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        startActivity(activity);
+    }
 }
