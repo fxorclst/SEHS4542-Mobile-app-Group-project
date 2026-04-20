@@ -1,4 +1,4 @@
-package com.group.groupProject.game.mingGame;
+package com.group.groupProject.core;
 
 import android.content.Context;
 

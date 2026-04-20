@@ -29,8 +29,9 @@
 
                 <ImageView
                     android:id="@+id/image_background"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -89,6 +90,7 @@
                     app:layout_constraintTop_toBottomOf="@id/image_background">
 
                     <LinearLayout
+                        android:id="@+id/go_to_scoreboard"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
@@ -101,7 +103,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="8dp"
-                            app:srcCompat="@drawable/video_call" />
+                            app:srcCompat="@drawable/scoreboard" />
 
                         <TextView
                             android:id="@+id/textview1"
@@ -115,6 +117,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/start_game"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
@@ -127,20 +130,21 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="8dp"
-                            app:srcCompat="@drawable/notification" />
+                            app:srcCompat="@drawable/startgame" />
 
                         <TextView
                             android:id="@+id/textView2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
-                            android:text="@string/notification"
+                            android:text="Start from the beginning"
                             android:textAlignment="center"
                             android:textColor="#C77710"
                             android:textStyle="italic|bold" />
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/log_out"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
@@ -153,14 +157,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="8dp"
-                            app:srcCompat="@drawable/voice_call" />
+                            app:srcCompat="@drawable/logout" />
 
                         <TextView
                             android:id="@+id/textView5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
-                            android:text="Voice Call"
+                            android:text="Log Out"
                             android:textAlignment="center"
                             android:textColor="#C77710"
                             android:textStyle="italic|bold" />
@@ -169,520 +173,47 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--            <EditText-->
-<!--                android:id="@+id/editTextText4"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="50dp"-->
-<!--                android:layout_marginStart="32dp"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:layout_marginEnd="32dp"-->
-<!--                android:layout_marginBottom="16dp"-->
-<!--                android:background="@drawable/search_edt_background"-->
-<!--                android:drawableEnd="@drawable/search_icon"-->
-<!--                android:drawablePadding="8dp"-->
-<!--                android:ems="10"-->
-<!--                android:inputType="text"-->
-<!--                android:padding="8dp"-->
-<!--                android:autofillHints="Search"/>-->
-
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/main"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="16dp"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:id="@+id/ll_game1"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.25"
-                        android:orientation="vertical">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:background="@drawable/white_background">
-
-                            <ImageView
-                                android:id="@+id/imageView_game1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="16dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_1" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <TextView
-                            android:id="@+id/textView_game1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Color Brain"
-                            android:textAlignment="center"
-                            android:textColor="#2E3D6D"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/ll_game2"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.25"
-                        android:orientation="vertical">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:background="@drawable/white_background">
-
-                            <ImageView
-                                android:id="@+id/imageView_game2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="16dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_2" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <TextView
-                            android:id="@+id/textView_game2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Memory"
-                            android:textAlignment="center"
-                            android:textColor="#2E3D6D"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/ll_game3"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.25"
-                        android:orientation="vertical">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:background="@drawable/white_background">
-
-                            <ImageView
-                                android:id="@+id/imageView_game3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="16dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_3" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <TextView
-                            android:id="@+id/textView_game3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Apple Game"
-                            android:textAlignment="center"
-                            android:textColor="#2E3D6D"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/ll_game4"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.25"
-                        android:orientation="vertical">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:background="@drawable/white_background">
-
-                            <ImageView
-                                android:id="@+id/imageView_game4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="16dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_4" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <TextView
-                            android:id="@+id/textView_game4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Ming Game"
-                            android:textAlignment="center"
-                            android:textColor="#2E3D6D"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="16dp"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:id="@+id/ll_game5"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.25"
-                        android:orientation="vertical">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:background="@drawable/white_background">
-
-                            <ImageView
-                                android:id="@+id/imageView_game5"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="16dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_5" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <TextView
-                            android:id="@+id/textView_game5"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Hide Phone"
-                            android:textAlignment="center"
-                            android:textColor="#2E3D6D"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/ll_game6"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.25"
-                        android:orientation="vertical">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:background="@drawable/white_background">
-
-                            <ImageView
-                                android:id="@+id/imageView_game6"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="16dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_6" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <TextView
-                            android:id="@+id/textView_game6"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Save Cat"
-                            android:textAlignment="center"
-                            android:textColor="#2E3D6D"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/ll_game7"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.25"
-                        android:orientation="vertical">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:background="@drawable/white_background">
-
-                            <ImageView
-                                android:id="@+id/imageView_game7"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="16dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_7" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <TextView
-                            android:id="@+id/textView_game7"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Setting"
-                            android:textAlignment="center"
-                            android:textColor="#2E3D6D"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/ll_game8"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.25"
-                        android:orientation="vertical">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:background="@drawable/white_background">
-
-                            <ImageView
-                                android:id="@+id/imageView_game8"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="16dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_8" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <TextView
-                            android:id="@+id/textView_game8"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Other"
-                            android:textAlignment="center"
-                            android:textColor="#2E3D6D"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="16dp"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.25"
-                        android:orientation="vertical">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:background="@drawable/white_background">
-
-                            <ImageView
-                                android:id="@+id/imageView_game9"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="16dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_5" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <TextView
-                            android:id="@+id/textView_game9"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Calender"
-                            android:textAlignment="center"
-                            android:textColor="#2E3D6D"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.25"
-                        android:orientation="vertical">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:background="@drawable/white_background">
-
-                            <ImageView
-                                android:id="@+id/imageView_game10"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="16dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/ic_6" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <TextView
-                            android:id="@+id/textView_game10"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Tips"
-                            android:textAlignment="center"
-                            android:textColor="#2E3D6D"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.25"
-                        android:orientation="vertical">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:background="@drawable/white_background">
-
-                            <ImageView
-                                android:id="@+id/imageView_logout"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:layout_marginStart="16dp"
-                                android:layout_marginTop="16dp"
-                                android:layout_marginEnd="16dp"
-                                android:layout_marginBottom="16dp"
-                                android:contentDescription="@string/logout"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/btn_arrow2" />
-
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <TextView
-                            android:id="@+id/textView_logout"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/logout"
-                            android:textAlignment="center"
-                            android:textColor="#2E3D6D"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                </LinearLayout>
-            </LinearLayout>
-
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp">
+
+                <TextView
+                    android:id="@+id/level_select_grid_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/level_select_title"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_unlock_progress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Unlocked 1 / 12"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/level_select_grid_title" />
+
+                <GridLayout
+                    android:id="@+id/grid_levels"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:columnCount="4"
+                    android:useDefaultMargins="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_unlock_progress" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </LinearLayout>

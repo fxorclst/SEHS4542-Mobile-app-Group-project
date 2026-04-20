@@ -1,4 +1,4 @@
-package com.group.groupProject.game.mingGame;
+package com.group.groupProject.core;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,7 +7,7 @@ public final class LevelProgressStore {
 
     private static final String PREFS_NAME = "level_progress";
     public static final String KEY_MAX_UNLOCK_LEVEL = "MAX_UNLOCK_LEVEL";
-    public static final int TOTAL_LEVEL_COUNT = 2;
+    public static final int TOTAL_LEVEL_COUNT = 9;
     private static final int DEFAULT_MAX_UNLOCK_LEVEL = 1;
 
     private LevelProgressStore() {
@@ -30,10 +30,6 @@ public final class LevelProgressStore {
 
     public static void ensureInitialized(Context context) {
         getMaxUnlockedLevel(context);
-    }
-
-    public static boolean isLevelUnlocked(Context context, int levelNumber) {
-        return levelNumber <= getMaxUnlockedLevel(context);
     }
 
     public static void unlockLevel(Context context, int levelNumber) {
