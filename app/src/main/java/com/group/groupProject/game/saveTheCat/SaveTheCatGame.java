@@ -1,7 +1,8 @@
-package com.group.groupProject.game.savethecat;
+package com.group.groupProject.game.saveTheCat;
 
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.group.groupProject.R;
+import com.group.groupProject.core.MainActivity;
 
 /**
  * SaveTheCatGame
@@ -407,7 +409,7 @@ public class SaveTheCatGame extends AppCompatActivity {
                             .setTitle("💥  BOOM!")
                             .setMessage(reason + "\nPut the bomb in the 🗑️ trash before the timer runs out!")
                             .setPositiveButton("Try Again", (d, w) -> restartGame())
-                            .setNegativeButton("Quit",      (d, w) -> finish())
+                            .setNegativeButton("Quit",      (d, w) -> backToHomePage())
                             .setCancelable(false)
                             .show(), 1000);
         }
@@ -426,9 +428,15 @@ public class SaveTheCatGame extends AppCompatActivity {
                         .setTitle("🎉  Cat Saved!")
                         .setMessage("The bomb exploded safely in the trash bin!\nThe cat is safe! 🐱")
                         .setPositiveButton("Play Again", (d, w) -> restartGame())
-                        .setNegativeButton("Back",       (d, w) -> finish())
+                        .setNegativeButton("Back to home page",       (d, w) -> backToHomePage())
                         .setCancelable(false)
                         .show(), 600);
+    }
+
+    private void backToHomePage(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void flashScreen() {

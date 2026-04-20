@@ -121,8 +121,6 @@ public class HideThePhoneGame extends AppCompatActivity implements SensorEventLi
     // ══════════════════════════════════════════════════════════════════
 
     private void dropKey() {
-        keyFallen = true;   // set FIRST — blocks all future sensor triggers
-
         // Tip basket
         tvBasket.animate()
                 .rotation(40f).setDuration(280)
@@ -328,26 +326,31 @@ public class HideThePhoneGame extends AppCompatActivity implements SensorEventLi
     public void onSensorChanged(SensorEvent event) {
         if (gameEnded) return;
 
-        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            float z = event.values[2];
+        int type = event.sensor.getType();
 
-            // Drop key: face-down once only
-            if (!keyFallen && z < -8f) {
+        if (type == Sensor.TYPE_ACCELEROMETER) {
+            float z = event.values[2];
+            boolean isFaceDown = z < -8f;
+
+            // Drop key only once
+            if (isFaceDown && !keyFallen) {
+                keyFallen = true;
                 runOnUiThread(this::dropKey);
             }
 
-            // Hide from guard: face-down counts
-            if (guardCrossing && z < -8f) {
+            // Hide from guard only once per crossing
+            if (guardCrossing && isFaceDown && !isHidden) {
                 isHidden = true;
-                runOnUiThread(() -> tvStatus.setText("✋  Hiding… 🤫"));
+                runOnUiThread(() -> tvStatus.setText("✋ Hiding… 🤫"));
             }
         }
 
-        if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
-            // Hand covers screen
-            if (guardCrossing && event.values[0] < event.sensor.getMaximumRange()) {
+        else if (type == Sensor.TYPE_PROXIMITY) {
+            boolean isCovered = event.values[0] < event.sensor.getMaximumRange();
+
+            if (guardCrossing && isCovered && !isHidden) {
                 isHidden = true;
-                runOnUiThread(() -> tvStatus.setText("✋  Hiding… 🤫"));
+                runOnUiThread(() -> tvStatus.setText("✋ Hiding… 🤫"));
             }
         }
     }
@@ -386,8 +389,10 @@ public class HideThePhoneGame extends AppCompatActivity implements SensorEventLi
 
     private void vibrate(int ms) {
         if (vibrator == null) return;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            vibrator.vibrate(VibrationEffect.createOneShot(ms, VibrationEffect.DEFAULT_AMPLITUDE));
-        else vibrator.vibrate(ms);
+        if (!vibrator.hasVibrator()) return;
+
+        vibrator.vibrate(
+                VibrationEffect.createOneShot(ms, VibrationEffect.DEFAULT_AMPLITUDE)
+        );
     }
 }
