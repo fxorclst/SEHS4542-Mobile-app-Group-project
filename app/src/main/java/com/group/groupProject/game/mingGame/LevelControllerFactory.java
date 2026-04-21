@@ -11,9 +11,9 @@ public final class LevelControllerFactory {
 
     public static BaseGameController create(int levelNumber) {
         switch (levelNumber) {
-            case 1:
+            case 4:
                 return new Level1Controller();
-            case 2:
+            case 5:
                 return new Level2Controller();
             default:
                 return new Level1Controller();

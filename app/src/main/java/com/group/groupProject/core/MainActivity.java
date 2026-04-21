@@ -155,9 +155,8 @@ public class MainActivity extends AppCompatActivity {
             case 3:
                 return new Intent(this, com.group.groupProject.game.appleActivity.AppleActivity_sing.class);
             case 4:
-                return new Intent(this, com.group.groupProject.game.mingGame.GameActivity.class).putExtra(GameActivity.EXTRA_LEVEL_NUMBER, 1);
             case 5:
-                return new Intent(this, com.group.groupProject.game.mingGame.GameActivity.class).putExtra(GameActivity.EXTRA_LEVEL_NUMBER, 2);
+                return new Intent(this, com.group.groupProject.game.mingGame.GameActivity.class).putExtra("LEVEL_NUMBER", levelNumber);
             case 6:
                 return new Intent(this, com.group.groupProject.game.hideThePhoneGame.HideThePhoneGame.class);
             case 7:

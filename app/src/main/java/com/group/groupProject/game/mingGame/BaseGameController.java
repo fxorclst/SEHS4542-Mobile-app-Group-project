@@ -1,14 +1,27 @@
 package com.group.groupProject.game.mingGame;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.firebase.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
 import com.group.groupProject.R;
 import com.group.groupProject.core.LevelProgressStore;
+import com.group.groupProject.core.MainActivity;
+import com.group.groupProject.score.model.SubmitScoreRequest;
+import com.group.groupProject.score.model.SubmitScoreResponse;
+import com.group.groupProject.score.remote.NetworkModule;
+import com.group.groupProject.score.repository.RepositoryCallback;
+import com.group.groupProject.score.repository.ScoreboardRepository;
+import com.group.groupProject.score.repository.ScoreboardRepositoryImpl;
+
+import org.json.JSONObject;
 
 import java.util.Collections;
 import java.util.Map;
@@ -21,6 +34,7 @@ public abstract class BaseGameController {
     private TextView levelDescriptionView;
     private TextView mistakeCountView;
     private int mistakeCount;
+    private final ScoreboardRepository repository = NetworkModule.createRepository();
 
     public final void attach(GameActivity hostActivity,
                              FrameLayout contentContainer,
@@ -70,10 +84,32 @@ public abstract class BaseGameController {
         int currentLevel = getLevelNumber();
         int nextLevel = currentLevel + 1;
         boolean isLastLevel = currentLevel >= LevelProgressStore.TOTAL_LEVEL_COUNT;
+        final int[] RANK = new int[1];
 
-        if (isCleared && !isLastLevel) {
-            LevelProgressStore.unlockLevel(requireHost(), nextLevel);
-        }
+//        if (isCleared && !isLastLevel) {
+//            LevelProgressStore.unlockLevel(requireHost(), nextLevel);
+//        }
+
+        SubmitScoreRequest scoreRequest = new SubmitScoreRequest();
+        scoreRequest.playerName = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getDisplayName() : "Anonymous";
+        scoreRequest.score = getLevelScore();
+        scoreRequest.level = getLevelNumber();
+        scoreRequest.metadata = getMetadata(); // You can add any additional data as needed
+
+        repository.submitScore("g99-7890", scoreRequest, new RepositoryCallback<SubmitScoreResponse>()
+        {
+            @Override
+            public void onSuccess(SubmitScoreResponse data) {
+                Toast.makeText(requireHost(), "Score submitted successfully! You Rank:" + data.rank, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(String message, Throwable throwable) {
+                Toast.makeText(requireHost(), "Failed to submit score: " + message, Toast.LENGTH_SHORT).show();
+
+            }
+
+        });
 
         MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(requireHost());
 
@@ -84,14 +120,13 @@ public abstract class BaseGameController {
 
         if (isCleared) {
             builder.setTitle(R.string.level_score_clear_title)
-                    .setMessage((requireHost().getString(R.string.level_score_message, getMistakeCount(), getLevelScore())) +
-                            "\n\n" +
-                            requireHost().getString(isLastLevel ? R.string.level_clear_all_message : R.string.level_clear_message))
+                    .setMessage((requireHost().getString(R.string.level_score_message, getMistakeCount(), getLevelScore())) + "\n\n" +
+                            requireHost().getString(R.string.level_clear_message))
                     .setCancelable(false);
-            if (!isLastLevel) {
-                builder.setNegativeButton(R.string.level_score_next_level,
-                        (dialog, which) -> requireHost().openLevel(nextLevel));
-            }
+//            if (!isLastLevel) {
+//                builder.setNegativeButton(R.string.level_score_next_level,
+//                        (dialog, which) -> requireHost().openLevel(nextLevel));
+//            }
         } else {
             builder.setTitle(R.string.level_score_failed_title)
                     .setMessage(requireHost().getString(R.string.level_score_message, getMistakeCount(), getLevelScore())
@@ -103,6 +138,10 @@ public abstract class BaseGameController {
     }
 
     protected abstract int getLevelScore();
+
+    protected String getMetadata() {
+        return "{}";
+    }
 
     protected void showLevelClearDialog() {
         showLevelScoreDialog(true);
