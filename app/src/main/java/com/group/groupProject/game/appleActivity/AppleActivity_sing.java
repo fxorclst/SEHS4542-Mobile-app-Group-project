@@ -153,6 +153,7 @@ public class AppleActivity_sing extends AppCompatActivity implements SensorEvent
         apple2.setTranslationY(0);
         apple3.setTranslationY(0);
         timerText.setText(String.format(Locale.getDefault(), "Time: %d", remainingMillisGame1 / 1000));
+        resumeGame();
 
     }
 
