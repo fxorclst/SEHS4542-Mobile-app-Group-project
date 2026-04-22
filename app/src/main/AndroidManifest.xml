@@ -67,6 +67,14 @@
         <activity
             android:name=".score.LeaderboardActivity"
             android:exported="false" />
+        <activity
+            android:name=".funmath.QuizGameActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".caveescape.game.GameActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
