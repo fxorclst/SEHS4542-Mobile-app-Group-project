@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <uses-permission android:name="android.permission.VIBRATE" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -23,6 +23,12 @@
         <activity
             android:name=".game.colorGame.ColorMemoryGameActivity"
             android:exported="false" />
+        <activity
+            android:name=".game.hideThePhoneGame.HideThePhoneGame"
+            android:exported="false" />
+        <activity
+            android:name=".game.saveTheCat.SaveTheCatGame"
+            android:exported="false"/>
         <activity
             android:name=".game.colorGame.ColorGameDifficulty"
             android:exported="false" />
@@ -51,19 +57,18 @@
         <activity
             android:name=".auth.LoginActivity"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".core.MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".game.mingGame.LevelSelectActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".game.mingGame.GameActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:exported="false" />
         <activity
             android:name=".score.LeaderboardActivity"
             android:exported="false" />
