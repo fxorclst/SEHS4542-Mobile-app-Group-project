@@ -10,11 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.group.groupProject.game.caveEscape.game.CaveEscapeGameActivity;
+import com.group.groupProject.game.funMath.QuizGameActivity;
 import com.group.groupProject.game.hideThePhoneGame.HideThePhoneGame;
 import com.group.groupProject.game.appleActivity.HomeActivity_sing;
 import com.group.groupProject.game.colorGame.ColorGameDifficulty;
 import com.group.groupProject.R;
 import com.group.groupProject.auth.LoginActivity;
+import com.group.groupProject.game.mingGame.GameActivity;
 import com.group.groupProject.game.mingGame.LevelSelectActivity;
 import com.group.groupProject.game.saveTheCat.SaveTheCatGame;
 
@@ -95,6 +98,16 @@ public class MainActivity extends AppCompatActivity {
 
         ll_game6.setOnClickListener(view -> {
             Intent intent = new Intent(this, SaveTheCatGame.class);
+            startActivity(intent);
+            finish();
+        });
+        ll_game7.setOnClickListener(view -> {
+            Intent intent = new Intent(this, QuizGameActivity.class);
+            startActivity(intent);
+            finish();
+        });
+        ll_game8.setOnClickListener(view -> {
+            Intent intent = new Intent(this, CaveEscapeGameActivity.class);
             startActivity(intent);
             finish();
         });
