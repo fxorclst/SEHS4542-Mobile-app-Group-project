@@ -170,6 +170,7 @@ public class CaveEscapeGameActivity extends AppCompatActivity {
                                 restartLevel();
                                 break;
                             case 2:
+                                dialog.dismiss();
                                 finish();
                                 break;
                         }
@@ -193,24 +194,50 @@ public class CaveEscapeGameActivity extends AppCompatActivity {
         gameHandler.post(gameRunnable);
     }
 
+    private void goToNextLevel() {
+        levelNumber++;
+        levelData = LevelData.createLevel(levelNumber);
+        elapsedTime = 0;
+        score = 0;
+        tvTime.setText(getString(R.string.time, 0.0f));
+        tvLevelName.setText(getString(R.string.level, levelNumber) + " - " + levelData.getLevelName());
+        tvMaxTime.setText("/ " + levelData.getParTime() + "s par");
+        gameView.setLevel(levelData);
+        gameView.reset();
+        gameHandler.post(gameRunnable);
+    }
+
     private void showLevelCompleteDialog() {
         String message = getString(R.string.your_time, elapsedTime) + "\n" +
                         getString(R.string.score, score);
 
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.level_complete)
-                .setMessage(message)
-                .setPositiveButton(R.string.retry, (dialog, which) -> {
-                    restartLevel();
-                })
-                .setNegativeButton(R.string.back_to_menu, (dialog, which) -> {
-                    finish();
-                })
-                .setCancelable(false)
-                .show();
-    }
-
-    private void showGameOverDialog() {
+        if (levelNumber < 10) {
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.level_complete)
+                    .setMessage(message)
+                    .setPositiveButton(R.string.next_level, (dialog, which) -> {
+                        goToNextLevel();
+                    })
+                    .setNegativeButton(R.string.retry, (dialog, which) -> {
+                        restartLevel();
+                    })
+                    .setNeutralButton(R.string.back_to_menu, (dialog, which) -> {
+                        dialog.dismiss();
+                        finish();
+                    })
+                    .setCancelable(false)
+                    .show();
+        } else {
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.game_complete)
+                    .setMessage(message)
+                    .setPositiveButton(R.string.retry, (dialog, which) -> {
+                        restartLevel();
+                    })
+                    .setNegativeButton(R.string.back_to_menu, (dialog, which) -> {
+                        dialog.dismiss();
+                        finish();
+                    }) {
         new AlertDialog.Builder(this)
                 .setTitle("Time's Up!")
                 .setMessage("You ran out of time. Try again!")
@@ -218,6 +245,7 @@ public class CaveEscapeGameActivity extends AppCompatActivity {
                     restartLevel();
                 })
                 .setNegativeButton(R.string.back_to_menu, (dialog, which) -> {
+                    dialog.dismiss();
                     finish();
                 })
                 .setCancelable(false)
