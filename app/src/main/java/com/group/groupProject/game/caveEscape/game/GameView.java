@@ -53,7 +53,7 @@ public class GameView extends View implements SensorEventListener {
     private float maxTime;
 
     private Paint ballPaint, holePaint, obstaclePaint, hazardPaint, trailPaint, bgPaint;
-    private int bgColor, accentColor, obstacleColor, hazardColor, trailColor;
+    private int bgColor, ballColor, obstacleColor, hazardColor, trailColor, holeColor;
 
     private LevelData currentLevel;
 
@@ -84,18 +84,19 @@ public class GameView extends View implements SensorEventListener {
     }
 
     private void init() {
-        bgColor = Color.WHITE;
-        accentColor = getContext().getColor(R.color.cave_accent);
-        obstacleColor = getContext().getColor(R.color.obstacle_color);
-        hazardColor = getContext().getColor(R.color.cave_accent);
-        trailColor = getContext().getColor(R.color.trail_color);
+        bgColor = getContext().getColor(R.color.cave_dark);
+        ballColor = getContext().getColor(R.color.ball_color);
+        obstacleColor = getContext().getColor(R.color.obstacle_color_new);
+        hazardColor = getContext().getColor(R.color.ball_color);
+        trailColor = getContext().getColor(R.color.trail_color_new);
+        holeColor = getContext().getColor(R.color.hole_color);
 
         ballPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        ballPaint.setColor(accentColor);
+        ballPaint.setColor(ballColor);
         ballPaint.setStyle(Paint.Style.FILL);
 
         holePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        holePaint.setColor(Color.BLACK);
+        holePaint.setColor(holeColor);
         holePaint.setStyle(Paint.Style.FILL);
 
         obstaclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
