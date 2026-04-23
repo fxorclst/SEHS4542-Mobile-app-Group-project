@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.group.groupProject.R;
+import com.group.groupProject.core.LevelProgressStore;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -47,10 +48,8 @@ public class GameActivity extends AppCompatActivity {
         });
 
         LevelProgressStore.ensureInitialized(this);
-        levelNumber = getIntent().getIntExtra(EXTRA_LEVEL_NUMBER, 1);
-        if (levelNumber < 1 || levelNumber > 12) {
-            levelNumber = 1;
-        }
+        levelNumber = getIntent().getIntExtra("LEVEL_NUMBER", 4);
+
 
         controller = LevelControllerFactory.create(levelNumber);
 

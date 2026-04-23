@@ -22,8 +22,7 @@ val scoreboardBaseUrl = readLocalProperty(
     "SCOREBOARD_BASE_URL",
     "https://sehs.utkzml.easypanel.host/webhook/"
 ).ensureTrailingSlash()
-val scoreboardGroupId = readLocalProperty("SCOREBOARD_GROUP_ID", "")
-
+val scoreboardGroupId = readLocalProperty("SCOREBOARD_GROUP_ID", "g99-7890")
 
 android {
     namespace = "com.group.groupProject"

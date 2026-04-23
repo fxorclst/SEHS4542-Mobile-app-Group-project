@@ -50,7 +50,7 @@
     <string name="menu_back_to_levels">Back to levels</string>
     <string name="hint_dialog_title">Hint</string>
     <string name="hint_dialog_confirm">Got it</string>
-    <string name="level_clear_message">Nice work! The next level has been unlocked.</string>
+    <string name="level_clear_message">Nice work! Go back home page or replay this level.</string>
     <string name="level_failed_message">You\'re failed! Please try again.</string>
     <string name="level_clear_all_message">Great job! You cleared all levels.</string>
 

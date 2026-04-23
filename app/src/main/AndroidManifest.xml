@@ -27,16 +27,15 @@
             android:name=".game.hideThePhoneGame.HideThePhoneGame"
             android:exported="false" />
         <activity
+            android:name=".game.saveTheCat.SaveTheCatGame"
+            android:exported="false"/>
+
+        <activity
             android:name=".game.caveEscape.game.CaveEscapeGameActivity"
             android:exported="false" />
         <activity
             android:name=".game.funMath.QuizGameActivity"
             android:exported="false" />
-
-
-        <activity
-            android:name=".game.saveTheCat.SaveTheCatGame"
-            android:exported="false"/>
         <activity
             android:name=".game.colorGame.ColorGameDifficulty"
             android:exported="false" />
@@ -71,12 +70,9 @@
             android:exported="true"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".game.mingGame.LevelSelectActivity"
+            android:name=".game.mingGame.GameActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
-        <activity
-            android:name=".game.mingGame.GameActivity"
-            android:exported="false" />
         <activity
             android:name=".score.LeaderboardActivity"
             android:exported="false" />
