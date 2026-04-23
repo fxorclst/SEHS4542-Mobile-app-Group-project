@@ -61,8 +61,8 @@ public class ColorGameDifficulty extends AppCompatActivity {
         });
 
         btn_back_to_home.setOnClickListener(view -> {
-            Intent intentBackHome = new Intent(this, MainActivity.class);
-            startActivity(intentBackHome);
+//            Intent intentBackHome = new Intent(this, MainActivity.class);
+//            startActivity(intentBackHome);
             finish();
         });
     }

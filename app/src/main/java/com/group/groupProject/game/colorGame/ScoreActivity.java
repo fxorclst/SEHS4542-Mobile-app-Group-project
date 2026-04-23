@@ -36,8 +36,8 @@ public class ScoreActivity extends AppCompatActivity {
         tv_score.setText(score);
 
         btn_backToHome.setOnClickListener(view -> {
-            Intent intent_back_home = new Intent(this, MainActivity.class);
-            startActivity(intent_back_home);
+//            Intent intent_back_home = new Intent(this, MainActivity.class);
+//            startActivity(intent_back_home);
             finish();
         });
 

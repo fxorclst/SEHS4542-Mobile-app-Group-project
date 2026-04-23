@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         levelInfos.add(new LevelInfo(2, R.drawable.game_ic1,"Memory"));
         levelInfos.add(new LevelInfo(3, R.drawable.game_ic3,"Apple Game"));
         levelInfos.add(new LevelInfo(4, R.drawable.game_ic4,"Drawing"));
-        levelInfos.add(new LevelInfo(5, R.drawable.game_ic5,"Hidden Object"));
+        levelInfos.add(new LevelInfo(5, R.drawable.game_ic5,"Hidden Objs"));
         levelInfos.add(new LevelInfo(6, R.drawable.game_ic6,"Hide Phone"));
         levelInfos.add(new LevelInfo(7, R.drawable.game_ic7,"Save Cat"));
         levelInfos.add(new LevelInfo(8, R.drawable.game_ic8,"Cave Escape"));
