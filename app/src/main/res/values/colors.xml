@@ -6,4 +6,11 @@
     <color name="blue">#5271FF</color>
     <color name="green">#7ED957</color>
     <color name="yellow">#FFDE59</color>
+    <color name="cave_dark">#FF2D2D2D</color>
+    <color name="cave_accent">#FF6B6B6B</color>
+    <color name="cave_gold">#FFFFD700</color>
+    <color name="cave_medium">#FF4A4A4A</color>
+    <color name="cave_light">#FFB0B0B0</color>
+    <color name="obstacle_color">#FF8B4513</color>
+    <color name="trail_color">#80FFFFFF</color>
 </resources>

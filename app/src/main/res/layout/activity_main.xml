@@ -137,7 +137,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
-                            android:text="Start from the beginning"
+                            android:text="@string/notification"
                             android:textAlignment="center"
                             android:textColor="#C77710"
                             android:textStyle="italic|bold" />

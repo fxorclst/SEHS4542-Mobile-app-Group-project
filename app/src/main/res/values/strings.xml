@@ -89,4 +89,17 @@
     <string name="label_score">Score: %1$d</string>
     <string name="label_rank">Rank: %1$s</string>
     <string name="unknown_value">—</string>
+    <string name="level">Level</string>
+    <string name="time">%1$.1fs</string>
+    <string name="your_time">Your Time: %1$.1fs</string>
+    <string name="score">Score: %1$d</string>
+    <string name="your_rank">Your Rank: #%1$d</string>
+    <string name="paused">Paused</string>
+    <string name="resume">Resume</string>
+    <string name="retry">Retry</string>
+    <string name="back_to_menu">Back to Menu</string>
+    <string name="level_complete">Level Complete!</string>
+    <string name="submit_score">Submit Score</string>
+    <string name="next_level">Next Level</string>
+    <string name="tilt_hint">Tilt your device to move the ball to the black hole</string>
 </resources>

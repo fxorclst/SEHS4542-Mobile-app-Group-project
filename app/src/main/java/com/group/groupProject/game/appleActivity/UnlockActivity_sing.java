@@ -129,6 +129,7 @@ public class UnlockActivity_sing extends AppCompatActivity implements GestureDet
         isGameFinished = false;
         remainingMillisGame2 = 25000;
         timerText.setText(String.format(Locale.getDefault(), "Time: %d", remainingMillisGame2 / 1000));
+        resumeGame();
     }
 
     private void resumeGame() {

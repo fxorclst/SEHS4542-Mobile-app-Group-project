@@ -29,6 +29,13 @@
         <activity
             android:name=".game.saveTheCat.SaveTheCatGame"
             android:exported="false"/>
+
+        <activity
+            android:name=".game.caveEscape.game.CaveEscapeGameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".game.funMath.QuizGameActivity"
+            android:exported="false" />
         <activity
             android:name=".game.colorGame.ColorGameDifficulty"
             android:exported="false" />

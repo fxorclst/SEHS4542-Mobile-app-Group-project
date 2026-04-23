@@ -8,15 +8,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.group.groupProject.R;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.group.groupProject.R;
 import com.group.groupProject.auth.LoginActivity;
-import com.group.groupProject.game.mingGame.GameActivity;
+
 import com.group.groupProject.score.LeaderboardActivity;
 
 import java.util.ArrayList;
@@ -161,6 +160,10 @@ public class MainActivity extends AppCompatActivity {
                 return new Intent(this, com.group.groupProject.game.hideThePhoneGame.HideThePhoneGame.class);
             case 7:
                 return new Intent(this, com.group.groupProject.game.saveTheCat.SaveTheCatGame.class);
+            case 8:
+                return new Intent(this, com.group.groupProject.game.caveEscape.game.CaveEscapeGameActivity.class);
+            case 9:
+                return new Intent(this, com.group.groupProject.game.funMath.QuizGameActivity.class);
             default:
                 return null;
         }
