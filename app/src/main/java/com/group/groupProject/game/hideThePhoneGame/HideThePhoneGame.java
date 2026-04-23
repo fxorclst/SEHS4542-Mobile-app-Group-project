@@ -113,7 +113,7 @@ public class HideThePhoneGame extends AppCompatActivity implements SensorEventLi
         tvGuard.setVisibility(View.INVISIBLE);
         tvGuard.setTranslationX(0f);
 
-        tvHint.setText("Flip phone face-down 180° to tip the basket 🧺");
+        tvHint.setText("Flip phone face-down to tip the basket 🧺");
         tvStatus.setText("Guard is patrolling…");
     }
 
