@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.group.groupProject.R;
@@ -26,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseUser user;
     private TextView tv_username;
 
-    private TextView progressText;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         tv_username = findViewById(R.id.tv_username);
-        progressText = findViewById(R.id.txt_unlock_progress);
 
         String name = user.getDisplayName();
         tv_username.setText(name != null ? name : "User");
@@ -53,10 +49,6 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.go_to_scoreboard).setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), LeaderboardActivity.class);
             startActivity(intent);
-        });
-
-        findViewById(R.id.start_game).setOnClickListener(view -> {
-            Toast.makeText(this, "Start Game Clicked", Toast.LENGTH_SHORT).show();
         });
 
         findViewById(R.id.log_out).setOnClickListener(view -> {
@@ -67,26 +59,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
         LevelProgressStore.ensureInitialized(this);
-        refreshLevelGrid();
+        populateLevelGrid();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        refreshLevelGrid();
+
     }
 
-    private void refreshLevelGrid() {
-        int maxUnlockedLevel = LevelProgressStore.getMaxUnlockedLevel(this);
-        progressText.setText(getString(
-                R.string.level_select_progress,
-                maxUnlockedLevel,
-                LevelProgressStore.TOTAL_LEVEL_COUNT
-        ));
-        populateLevelGrid(maxUnlockedLevel);
-    }
-
-    private void populateLevelGrid(int maxUnlockedLevel) {
+    private void populateLevelGrid() {
         GridLayout gridLayout = findViewById(R.id.grid_levels);
         gridLayout.removeAllViews();
 
@@ -98,13 +80,11 @@ public class MainActivity extends AppCompatActivity {
         levelInfos.add(new LevelInfo(5, R.drawable.game_ic5,"Hidden Object"));
         levelInfos.add(new LevelInfo(6, R.drawable.game_ic6,"Hide Phone"));
         levelInfos.add(new LevelInfo(7, R.drawable.game_ic7,"Save Cat"));
-        levelInfos.add(new LevelInfo(8, R.drawable.startgame,"level 8"));
-        levelInfos.add(new LevelInfo(9, R.drawable.startgame,"level 9"));
+        levelInfos.add(new LevelInfo(8, R.drawable.game_ic8,"Cave Escape"));
+        levelInfos.add(new LevelInfo(9, R.drawable.game_ic9,"Quiz Game"));
 
         for (int level = 1; level <= LevelProgressStore.TOTAL_LEVEL_COUNT; level++) {
             final int selectedLevel = level;
-//            boolean unlocked = level <= maxUnlockedLevel; temporary unlock all levels for testing
-            boolean unlocked = true;
             LevelInfo levelInfo = levelInfos.get(level - 1);
 
             View itemView = getLayoutInflater().inflate(
@@ -115,19 +95,12 @@ public class MainActivity extends AppCompatActivity {
 
             ImageView imgIcon = itemView.findViewById(R.id.img_icon);
             TextView txtIcon = itemView.findViewById(R.id.txt_icon);
-            TextView txtLocked = itemView.findViewById(R.id.txt_level_not_unlocked);
 
             imgIcon.setImageResource(levelInfo.getIconResId());
-            imgIcon.setAlpha(unlocked ? 1f : 0.2f);
             txtIcon.setText(levelInfo.getLevelName());
-            txtLocked.setVisibility(unlocked ? View.GONE : View.VISIBLE);
 
-            itemView.setEnabled(unlocked);
-            itemView.setAlpha(unlocked ? 1f : 0.55f);
             itemView.setOnClickListener(v -> {
-                if (unlocked) {
-                    openLevel(selectedLevel);
-                }
+                openLevel(selectedLevel);
             });
 
             GridLayout.LayoutParams params = new GridLayout.LayoutParams(
@@ -135,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                     GridLayout.spec(GridLayout.UNDEFINED, 1f)
             );
             params.width = 0; // 等分 4 欄
+            params.height = UiUtils.dpToPx(this, (64+32+16+12));
             params.setMargins(
                     0, UiUtils.dpToPx(this, 6), 0, UiUtils.dpToPx(this, 6)
             );
@@ -168,8 +142,6 @@ public class MainActivity extends AppCompatActivity {
                 return null;
         }
     }
-
-
 
     private void openLevel(int levelNumber) {
         Intent activity = getLevelIntent(levelNumber);
