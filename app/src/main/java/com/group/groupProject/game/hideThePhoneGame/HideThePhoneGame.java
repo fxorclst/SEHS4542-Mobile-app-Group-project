@@ -276,7 +276,7 @@ public class HideThePhoneGame extends AppCompatActivity implements SensorEventLi
                 .setTitle("You Win! 🎊")
                 .setMessage("You found the key, unlocked the door,\nand hid from the guard!\nMission complete!")
                 .setPositiveButton("Play Again", (d, w) -> resetGame())
-                .setNegativeButton("Back",       (d, w) -> finish())
+                .setNegativeButton("Back",       (d, w) -> backToHomePage())
                 .setCancelable(false)
                 .show();
     }
@@ -287,7 +287,7 @@ public class HideThePhoneGame extends AppCompatActivity implements SensorEventLi
                 .setTitle("Busted! 🚨")
                 .setMessage("The guard saw your phone!\nCover the screen with your hand or flip it face-down next time.")
                 .setPositiveButton("Try Again", (d, w) -> resetGame())
-                .setNegativeButton("Quit",      (d, w) -> finish())
+                .setNegativeButton("Quit",      (d, w) -> backToHomePage())
                 .setCancelable(false)
                 .show();
     }
@@ -393,5 +393,10 @@ public class HideThePhoneGame extends AppCompatActivity implements SensorEventLi
         vibrator.vibrate(
                 VibrationEffect.createOneShot(ms, VibrationEffect.DEFAULT_AMPLITUDE)
         );
+    }
+        private void backToHomePage(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
