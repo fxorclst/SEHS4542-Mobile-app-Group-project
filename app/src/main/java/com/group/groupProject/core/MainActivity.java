@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser user;
     ImageView btn_logout;
     TextView tv_username;
-    LinearLayout ll_game1, ll_game2, ll_game3, ll_game4, ll_game5, ll_game6, ll_game7, ll_game8;
+    LinearLayout ll_game1, ll_game2, ll_game3, ll_game4, ll_game5, ll_game6, ll_game7, ll_game8, ranking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         tv_username = findViewById(R.id.tv_username);
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
-
+        ranking = findViewById(R.id.ranking);
         ll_game1 = findViewById(R.id.ll_game1);
         ll_game2 = findViewById(R.id.ll_game2);
         ll_game3 = findViewById(R.id.ll_game3);
@@ -59,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
             finish();
+        });
+
+        ranking.setOnClickListener(View -> {
+            Intent intent = new Intent(MainActivity.this, LeaderboardActivity.class); // 假設你的排行榜 Activity 叫這個名字
+            startActivity(intent);
         });
 
         ll_game1.setOnClickListener(view -> {
