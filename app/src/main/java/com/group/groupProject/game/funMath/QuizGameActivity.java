@@ -109,8 +109,8 @@ public class QuizGameActivity extends AppCompatActivity {
                 .setTitle("Exit Game")
                 .setMessage("Are you sure you want to exit? Your progress will be lost.")
                 .setPositiveButton("Exit", (dialog, which) -> {
-                    Intent intent = new Intent(QuizGameActivity.this, MainActivity.class);
-                    startActivity(intent);
+//                    Intent intent = new Intent(QuizGameActivity.this, MainActivity.class);
+//                    startActivity(intent);
                     finish();
                 })
                 .setNegativeButton("Cancel", (dialog, which) -> {
@@ -219,14 +219,14 @@ public class QuizGameActivity extends AppCompatActivity {
                 finish();
             });
             builder.setNegativeButton("Home", (dialog, which) -> {
-                Intent intent = new Intent(QuizGameActivity.this, MainActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(QuizGameActivity.this, MainActivity.class);
+//                startActivity(intent);
                 finish();
             });
         } else {
             builder.setPositiveButton("Home", (dialog, which) -> {
-                Intent intent = new Intent(QuizGameActivity.this, MainActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(QuizGameActivity.this, MainActivity.class);
+//                startActivity(intent);
                 finish();
             });
         }
