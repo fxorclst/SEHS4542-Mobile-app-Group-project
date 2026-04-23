@@ -18,8 +18,8 @@
 
     <ImageView
         android:id="@+id/cat_BG"
-        android:layout_width="375dp"
-        android:layout_height="375dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/welcome_text"
         android:layout_marginTop="35dp"
