@@ -13,4 +13,9 @@
     <color name="cave_light">#FFB0B0B0</color>
     <color name="obstacle_color">#FF8B4513</color>
     <color name="trail_color">#80FFFFFF</color>
+    
+    <color name="ball_color">#E94560</color>
+    <color name="hole_color">#1A1A2E</color>
+    <color name="obstacle_color_new">#4A4A6A</color>
+    <color name="trail_color_new">#E9456040</color>
 </resources>
