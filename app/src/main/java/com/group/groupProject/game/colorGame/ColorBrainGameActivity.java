@@ -340,9 +340,9 @@ public class ColorBrainGameActivity extends AppCompatActivity {
 
     private void goToMainActivity() {
         cancelTimer();
-        Intent intent = new Intent(ColorBrainGameActivity.this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        startActivity(intent);
+//        Intent intent = new Intent(ColorBrainGameActivity.this, MainActivity.class);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+//        startActivity(intent);
         finish();
     }
 
