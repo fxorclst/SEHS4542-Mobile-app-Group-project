@@ -1,6 +1,7 @@
 package com.group.groupProject.game.hideThePhoneGame;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.group.groupProject.R;
+import com.group.groupProject.core.MainActivity;
 
 /**
  * HideThePhoneGame
