@@ -32,6 +32,7 @@
 
         <activity
             android:name=".game.caveEscape.game.CaveEscapeGameActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".game.funMath.QuizGameActivity"
