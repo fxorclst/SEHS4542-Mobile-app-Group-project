@@ -107,6 +107,9 @@ public class RegisterActivity extends AppCompatActivity {
                             if (task2.isSuccessful()) {
                                 Log.d(TAG, "User Name updated.");
                                 Toast.makeText(RegisterActivity.this, "Register success", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
                         });
                     }
