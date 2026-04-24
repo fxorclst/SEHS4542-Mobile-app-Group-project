@@ -34,7 +34,6 @@ import com.group.groupProject.R;
 public class LoginActivity extends AppCompatActivity {
     TextView tv_go_reg;
     EditText editTextEmail, editTextPassword;
-    ImageButton buttonReg;
     Button btn_google;
     FirebaseAuth mAuth;
     String TAG;
@@ -94,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             progressBar.setVisibility(View.GONE);
+
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d(TAG, "signInWithEmail:success");
@@ -104,14 +104,11 @@ public class LoginActivity extends AppCompatActivity {
                                 // If sign in fails, display a message to the user.
                                 Log.w(TAG, "signInWithEmail:failure", task.getException());
                                 Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                                btn_login.setVisibility(View.VISIBLE);
                             }
                         }
                     });
         });
-
-
-
-
 
         tv_go_reg.setOnClickListener(view -> {
             startActivity(new Intent(this, RegisterActivity.class));
@@ -164,8 +161,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void showError(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        buttonReg.setEnabled(true);
-        buttonReg.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.GONE);
     }
 }
